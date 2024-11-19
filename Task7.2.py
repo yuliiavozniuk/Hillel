@@ -1,10 +1,8 @@
 def correct_sentence(text):
-    if text[-1] == '.':
-        return f'{text.capitalize()}'
-    elif '.' in text[0:]:
-        return f'{text.title()}.'
-    else:
-        return f'{text.capitalize()}.'
+    text = text[0].upper() + text[1:]
+    if not text.endswith('.'):
+        text = text + '.'
+    return text
 
 
 assert correct_sentence("greetings, friends") == "Greetings, friends.", 'Test1'
