@@ -8,7 +8,7 @@ rest_of_seconds %= (60 * 60)
 minutes = rest_of_seconds // 60
 seconds = rest_of_seconds % 60
 
-if 11 <= days % 100 <=14:
+if 11 <= days % 100 <= 14:
     word = 'днів'
 elif days % 10 == 1:
     word = 'день'
