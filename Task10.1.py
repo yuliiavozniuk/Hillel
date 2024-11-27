@@ -1,6 +1,7 @@
 def pow(x):
     return x ** 2
 
+
 def some_gen(begin, end, func):
     """
      begin: перший елемент послідовності
