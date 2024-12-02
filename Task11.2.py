@@ -1,4 +1,9 @@
 def generate_cube_numbers(end):
+    for item in range(2, end):
+        result = item ** 3
+        if result > end:
+            break
+        yield result
 
 
 from inspect import isgenerator
