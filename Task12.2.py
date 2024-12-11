@@ -7,7 +7,7 @@ class Item:
         self.name = name
 
     def __str__(self):
-        return f'Item: {self.name}, {self.price}, {self.description}, {self.dimensions}'
+        return f'Item: {self.name}, price: {self.price}'
 
 class User:
 
@@ -17,7 +17,7 @@ class User:
         self.numberphone = numberphone
 
     def __str__(self):
-        return f'User: {self.name} {self.surname}, {self.numberphone}'
+        return f'User: {self.name} {self.surname}'
 
 class Purchase:
     def __init__(self, user):
@@ -26,10 +26,10 @@ class Purchase:
         self.total = 0
 
     def add_item(self, item, cnt):
-        if item in self.products:
-            self.total -= self.products[item] * item.price
         self.products[item] = cnt
-        self.total += cnt * item.price
+        if item in self.products:
+            self.total += cnt * item.price
+
 
     def __str__(self):
         items_str = '\n'.join(f'{item.name}: {cnt} pcs.' for item, cnt in self.products.items())
@@ -40,11 +40,9 @@ class Purchase:
 
 
 
-
 lemon = Item('lemon', 5, "yellow", "small", )
 apple = Item('apple', 2, "red", "middle", )
 print(lemon)
-print(apple)
 
 buyer = User("Ivan", "Ivanov", "02628162")
 print(buyer)
@@ -73,10 +71,3 @@ apple: 10 pcs.
 """
 
 assert cart.get_total() == 40
-
-buyer_2 = User("Yuliia", "Vozniuk", "07858884")
-print(buyer_2)
-cart_2 = Purchase(buyer_2)
-cart_2.add_item(lemon, 7)
-cart_2.add_item(apple, 9)
-print(cart_2)
