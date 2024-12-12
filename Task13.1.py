@@ -34,8 +34,6 @@ class Group:
         student = self.find_student(last_name)
         if student:
             self.group.remove(student)
-        else:
-            return None
 
     def find_student(self, last_name):
         for student in self.group:
